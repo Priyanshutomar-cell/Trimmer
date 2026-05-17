@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrimmerHub - Premium Hair Clippers & Trimmers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">✂️ TrimmerHub</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="search-btn" id="searchBtn" title="Search">🔍</button>
+                <button class="cart-btn" id="cartBtn" title="Shopping Cart">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <button id="searchSubmit">Search</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Hair Trimmers & Clippers</h1>
+            <p>Professional quality grooming tools for every budget and skill level</p>
+            <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('electric')">⚡ Electric</button>
+                <button class="filter-btn" onclick="filterProducts('manual')">✂️ Manual</button>
+                <button class="filter-btn" onclick="filterProducts('professional')">💈 Professional</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>Why Choose TrimmerHub?</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i>✅</i>
+                    <h3>Quality Products</h3>
+                    <p>Carefully selected trimmers from trusted brands</p>
+                </div>
+                <div class="about-card">
+                    <i>🚚</i>
+                    <h3>Fast Shipping</h3>
+                    <p>Free shipping on orders over $50</p>
+                </div>
+                <div class="about-card">
+                    <i>💰</i>
+                    <h3>Best Prices</h3>
+                    <p>Competitive prices for all budget ranges</p>
+                </div>
+                <div class="about-card">
+                    <i>🛡️</i>
+                    <h3>Secure Checkout</h3>
+                    <p>Safe and secure payment process</p>
+                </div>
+                <div class="about-card">
+                    <i>⭐</i>
+                    <h3>Expert Support</h3>
+                    <p>Get advice from grooming professionals</p>
+                </div>
+                <div class="about-card">
+                    <i>🔄</i>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy on all products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form" onsubmit="handleContactForm(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn-primary full-width">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-btn" id="closeCart">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart"><p>Your cart is empty</p></div>
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping:</span>
+                <span id="shipping">Free</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+            </div>
+            <button class="btn-primary full-width" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>TrimmerHub is your one-stop shop for premium hair trimmers and clippers. We offer a wide selection of products for professionals and beginners alike.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="LinkedIn">in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TrimmerHub. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #10b981;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 2000;
+        display: none;
+        animation: slideInRight 0.3s ease-out;
+    "></div>
+
+    <style>
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
